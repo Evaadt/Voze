@@ -1,0 +1,27 @@
+<!-- Lista de frases publicadas -->
+<h2>Frases Publicadas</h2>
+
+<div *ngFor="let phrase of phrases()">
+  <!-- Texto da frase -->
+  <p><strong>{{ phrase.content }}</strong></p>
+
+  <!-- Autor -->
+  <p><em>– {{ phrase.author }}</em></p>
+
+  <!-- Imagem opcional -->
+  <!-- <img *ngIf="phrase.imageUrl" [src]="phrase.imageUrl" alt="Imagem da frase" /> -->
+
+  <!-- Ações -->
+  <div class="actions">
+    <!-- ❤️ {{ phrase.likes }} -->
+    <button (click)="like(phrase.id)">Curtir</button>
+    <button (click)="delete(phrase.id)">Excluir</button>
+    <!-- Editar (opcional) -->
+    <!-- <a [routerLink]="['/editar', phrase.id]">Editar</a> -->
+  </div>
+
+  <hr />
+</div>
+
+<!-- Link para nova frase -->
+<a routerLink="/nova">+ Nova Frase</a>
