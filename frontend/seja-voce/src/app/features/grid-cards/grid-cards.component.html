@@ -1,0 +1,15 @@
+<div class="grid-container">
+    <div *ngFor="let phrase of phrases()" class="grid-item" [ngClass]="{ 'with-image': phrase.imageUrl }">
+      <ng-container *ngIf="phrase.imageUrl; else textOnly">
+        <img [src]="phrase.imageUrl" alt="Imagem da frase" />
+      </ng-container>
+  
+      <ng-template #textOnly>
+        <div class="text-box">
+          <h3>{{ phrase.author }}</h3>
+          <p>"{{ phrase.content }}"</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  
